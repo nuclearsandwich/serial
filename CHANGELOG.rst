@@ -2,8 +2,8 @@
 Changelog for package serial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.2.2 (2017-03-22)
+------------------
 * Fix issue with write() and a timeout of 0. (`#137 <https://github.com/wjwwood/serial/issues/137>`_)
   * Fix issue with write() and a timeout of 0.
   * fix up style
