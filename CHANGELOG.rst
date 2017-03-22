@@ -2,6 +2,94 @@
 Changelog for package serial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix issue with write() and a timeout of 0. (`#137 <https://github.com/wjwwood/serial/issues/137>`_)
+  * Fix issue with write() and a timeout of 0.
+  * fix up style
+* Update documentation (`#140 <https://github.com/wjwwood/serial/issues/140>`_)
+  * Fix typo and missing dependency in README
+  * [docs] Update docs: fix deprecation warnings + add missing deps to README
+* fixing unix timeouts handling ("timer_tests.short_interval" failure) (`#147 <https://github.com/wjwwood/serial/issues/147>`_)
+* fix timeouts handling on Unix systems (`#142 <https://github.com/wjwwood/serial/issues/142>`_)
+  fixed "singed long" overflow that took place on attempt
+  to use ~3000ms or bigger timeouts on Unix systems
+* resource leak if exception in SerialImpl constructor (`#146 <https://github.com/wjwwood/serial/issues/146>`_)
+* Const corrections. (`#141 <https://github.com/wjwwood/serial/issues/141>`_)
+* Merge pull request `#118 <https://github.com/wjwwood/serial/issues/118>`_ from Rimco/patch-1
+  Updated serial.cc for FreeBSD 9 compatibility.
+* Updated serial.cc for FreeBSD 9 compatibility.
+* Merge pull request `#116 <https://github.com/wjwwood/serial/issues/116>`_ from pao/patch-1
+  Use CLOCK_MONOTONIC (Linux)/SYSTEM_CLOCK (OS X) to time select()
+* on OS X, use SYSTEM_CLOCK, not CALENDAR_CLOCK
+  Analogously to using `CLOCK_MONOTONIC` on Linux to time events in favor of `CLOCK_REALTIME`, `SYSTEM_CLOCK` should be used in favor of `CALENDAR_CLOCK` on OS X.
+  Ref: http://stackoverflow.com/questions/11680461/monotonic-clock-on-osx
+* on Linux, use CLOCK_MONOTONIC for clock_gettime()
+  On Linux systems which are being driven by an external time source (NTP or PTP), it is possible that time appears to slew in reverse under `CLOCK_REALTIME`. Since the timer function is used to time durations of events (calls to `select()`), it is better to use `CLOCK_MONOTONIC`, which isn't subject to slewing.
+* Merge pull request `#113 <https://github.com/wjwwood/serial/issues/113>`_ from vladimirgamalian/patch-1
+  Comment unreferenced formal parameters
+* Comment unreferenced formal parameter
+  Fix warning from static analysis tools.
+* Merge pull request `#112 <https://github.com/wjwwood/serial/issues/112>`_ from linquize/vs2015
+  Support VS2015
+* Can use the toolsets from Visual Studio 2010, 2012, 2013, 2015
+* Merge pull request `#106 <https://github.com/wjwwood/serial/issues/106>`_ from ramirahikkala/master
+  AdditionalIncludeDirectories must be relative for project not solution
+* AdditionalIncludeDirectories must be relative for project not solution
+  Fixes `#105 <https://github.com/wjwwood/serial/issues/105>`_
+  Signed-off-by: Rami <rami.rahikkala@jotautomation.com>
+* Merge pull request `#103 <https://github.com/wjwwood/serial/issues/103>`_ from drummist180/master
+  Fix include directory paths in Visual Studio projects.
+* Fix include directory paths in Visual Studio projects.
+  Remove previously ignored *.user file.
+* Merge pull request `#98 <https://github.com/wjwwood/serial/issues/98>`_ from wjwwood/fix_issue_97
+  fix warning on Windows
+* fix warning on Windows
+* Contributors: Brandon Morton, Christopher Baker, Linquize, Patrick O'Leary, Rami, Rimco, Stephane Poirier, Vladimir Gamalian, William Woodall, aleksey-sergey, dontsovcmc, rhd
+
+* Fix issue with write() and a timeout of 0. (`#137 <https://github.com/wjwwood/serial/issues/137>`_)
+  * Fix issue with write() and a timeout of 0.
+  * fix up style
+* Update documentation (`#140 <https://github.com/wjwwood/serial/issues/140>`_)
+  * Fix typo and missing dependency in README
+  * [docs] Update docs: fix deprecation warnings + add missing deps to README
+* fixing unix timeouts handling ("timer_tests.short_interval" failure) (`#147 <https://github.com/wjwwood/serial/issues/147>`_)
+* fix timeouts handling on Unix systems (`#142 <https://github.com/wjwwood/serial/issues/142>`_)
+  fixed "singed long" overflow that took place on attempt
+  to use ~3000ms or bigger timeouts on Unix systems
+* resource leak if exception in SerialImpl constructor (`#146 <https://github.com/wjwwood/serial/issues/146>`_)
+* Const corrections. (`#141 <https://github.com/wjwwood/serial/issues/141>`_)
+* Merge pull request `#118 <https://github.com/wjwwood/serial/issues/118>`_ from Rimco/patch-1
+  Updated serial.cc for FreeBSD 9 compatibility.
+* Updated serial.cc for FreeBSD 9 compatibility.
+* Merge pull request `#116 <https://github.com/wjwwood/serial/issues/116>`_ from pao/patch-1
+  Use CLOCK_MONOTONIC (Linux)/SYSTEM_CLOCK (OS X) to time select()
+* on OS X, use SYSTEM_CLOCK, not CALENDAR_CLOCK
+  Analogously to using `CLOCK_MONOTONIC` on Linux to time events in favor of `CLOCK_REALTIME`, `SYSTEM_CLOCK` should be used in favor of `CALENDAR_CLOCK` on OS X.
+  Ref: http://stackoverflow.com/questions/11680461/monotonic-clock-on-osx
+* on Linux, use CLOCK_MONOTONIC for clock_gettime()
+  On Linux systems which are being driven by an external time source (NTP or PTP), it is possible that time appears to slew in reverse under `CLOCK_REALTIME`. Since the timer function is used to time durations of events (calls to `select()`), it is better to use `CLOCK_MONOTONIC`, which isn't subject to slewing.
+* Merge pull request `#113 <https://github.com/wjwwood/serial/issues/113>`_ from vladimirgamalian/patch-1
+  Comment unreferenced formal parameters
+* Comment unreferenced formal parameter
+  Fix warning from static analysis tools.
+* Merge pull request `#112 <https://github.com/wjwwood/serial/issues/112>`_ from linquize/vs2015
+  Support VS2015
+* Can use the toolsets from Visual Studio 2010, 2012, 2013, 2015
+* Merge pull request `#106 <https://github.com/wjwwood/serial/issues/106>`_ from ramirahikkala/master
+  AdditionalIncludeDirectories must be relative for project not solution
+* AdditionalIncludeDirectories must be relative for project not solution
+  Fixes `#105 <https://github.com/wjwwood/serial/issues/105>`_
+  Signed-off-by: Rami <rami.rahikkala@jotautomation.com>
+* Merge pull request `#103 <https://github.com/wjwwood/serial/issues/103>`_ from drummist180/master
+  Fix include directory paths in Visual Studio projects.
+* Fix include directory paths in Visual Studio projects.
+  Remove previously ignored *.user file.
+* Merge pull request `#98 <https://github.com/wjwwood/serial/issues/98>`_ from wjwwood/fix_issue_97
+  fix warning on Windows
+* fix warning on Windows
+* Contributors: Brandon Morton, Christopher Baker, Linquize, Patrick O'Leary, Rami, Rimco, Stephane Poirier, Vladimir Gamalian, William Woodall, aleksey-sergey, dontsovcmc, rhd
+
 1.2.1 (2015-04-21)
 ------------------
 * Removed the use of a C++11 feature for compatibility with older browsers.
